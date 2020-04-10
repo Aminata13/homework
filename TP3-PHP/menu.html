@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Menu</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: #0000ff;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Exercice 1-4</a>
+            <div class="dropdown-content">
+                <a href="exo1.php">Exercice 1</a>
+                <a href="exo2.php">Exercice 2</a>
+                <a href="exo3_1.php">Exercice 3 - Version 1</a>
+                <a href="exo3_2.php">Exercice 3 - Version 2</a>
+                <a href="exo4.php">Exercice 4</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Exercice 5-10</a>
+            <div class="dropdown-content">
+                <a href="exo5.php">Exercice 5</a>
+                <a href="exo6.php">Exercice 6</a>
+                <a href="exo7.php">Exercice 7</a>
+                <a href="exo8.php">Exercice 8</a>
+                <a href="exo10.php">Exercice 10</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Exerice 11-15</a>
+            <div class="dropdown-content">
+                <a href="exo11.php">Exercice 11</a>
+                <a href="exo12.php">Exercice 12</a>
+                <a href="exo13.php">Exercice 13</a>
+                <a href="exo15.php">Exercice 15</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Exerice 16-20</a>
+            <div class="dropdown-content">
+                <a href="exo16.php">Exercice 16</a>
+                <a href="exo17.php">Exercice 17</a>
+                <a href="exo18.php">Exercice 18</a>
+                <a href="exo19.php">Exercice 19</a>
+                <a href="exo20.php">Exercice 20</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Exerice 20-26</a>
+            <div class="dropdown-content">
+                <a href="exo23.php">Exercice 23</a>
+                <a href="exo25.php">Exercice 25</a>
+                <a href="exo26.php">Exercice 26</a>
+            </div>
+        </li>
+    </ul>
+
+</body>
+
+</html>

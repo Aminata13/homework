@@ -1,0 +1,91 @@
+.header {
+    background-color: #042425;
+    height: 60px;
+}
+.header .title {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+}
+.content {
+    background-image: url("images/img-bg.jpg");
+    /* background-size: cover; */
+}
+.form-login {
+    width: 640px;
+    height: 360px;
+    position: absolute;
+    margin-top: -27.5%;
+    margin-left: 26.5%;
+    background-color: white;
+    border-radius: 5px;
+}
+.form {
+    margin-top: 7%;
+    width: 100%;
+    height: 100%;
+}
+.form .form-content {
+    width: 90%;
+    height: 4%;
+    padding-bottom: 8%;
+    margin-bottom: 3%;
+    margin-left: 5%;
+    border: 1.5px solid #dedede;
+    border-radius: 5px;
+}
+.form .form-content .form-icon {
+    float: left;
+    width: 6%;
+    height: 250%;
+    margin-top: 3%;
+    padding-left: 4%;
+    padding-right: 4%;
+    text-align: center;
+    border-right: 1.5px solid #dedede;
+}
+.form .form-content .form-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.form .form-content .form-input {
+    float: left;
+    width: 80%;
+    height: 200%;
+    margin-top: 3%;
+    margin-left: 1%;
+}
+.form .form-content .form-input input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin-left: 4%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+::placeholder { 
+    color: #dedede;
+    opacity: 1;
+  }
+.submit {
+    margin-top: 5%;
+}
+.submit .button input{
+    float: right;
+    background-color: #9ad434;
+    width: 30%;
+    height: 60px;
+    border-radius: 6px;
+    color: white;
+    margin-right: 25px;
+    border-color: #9ad434;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.error {
+    margin-left: 3%;
+    float: left;
+    color: #ff0000;
+}

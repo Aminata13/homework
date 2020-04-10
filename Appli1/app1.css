@@ -1,0 +1,134 @@
+/* @import url(//db.onlinewebfonts.com/c/3ad749f2a889ece75893f0b207f40f2b?family=M); */
+
+.content {
+    background-color: #4598c2;
+    width: 40%;
+    height: 625px;
+    margin-left: 30%;
+}
+.content-title {
+    font-family: M;
+    font-size: 40px;
+    margin-left: 18%;
+    padding-top: 2%;
+}
+.form {
+    width: 55%;
+    height: 50%;
+    margin-left: 23%;
+    margin-top: 2%;
+}
+.form1 {
+    width: 100%;
+    height: 100%;
+}
+.form .form-content {
+    width: 100%;
+    height: 12%;
+    padding-bottom: 8%;
+}
+.form .form-content .form-icon {
+    float: left;
+    width: 12%;
+    height: 101%;
+    margin-top: 0.2%;
+    text-align: center;
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.form .form-content .form-icon img {
+    margin-top: 8px;
+}
+.form .form-content .form-input {
+    float: left;
+    width: 80%;
+    height: 90%;
+}
+.form .form1 .form-content .form-input select {
+    width: 102%;
+    height: 112%;
+    margin-top: 1px;
+    border-radius: 5px; 
+}
+.select1 {
+    color: red;
+}
+.select2 {
+    color: #265801;
+}
+.select3 {
+    color: #818181;
+}
+.select4 {
+    color: indigo;
+}
+.form .form-content .form-input input{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border-color: whitesmoke;
+}
+.form .form-content .form-title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.buttons {
+    margin-top: 10%;
+}
+.buttons .button1 input {
+    float: left;
+    background-color: #818181;
+    width: 30%;
+    height: 35px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    border-color: #818181;
+}
+.buttons .button2 input{
+    float: right;
+    background-color: #d8ac0f;
+    width: 30%;
+    height: 35px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    margin-right: 25px;
+    border-color: #d8ac0f;
+}
+.icon1 {
+    background-color: #035178;
+}
+
+.icon2 {
+    background-color: #a50000;
+}
+
+.icon3 {
+    background-color: #265801;
+}
+
+.icon4 {
+    background-color: #818181;
+}
+.error {
+    float: left;
+    color: #ff0000;
+}
+.content .result {
+    width: 50%;
+    height: 30%;
+    margin-left: 24%;
+    margin-top: 3%;
+}
+.content .result table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 3px solid white;
+}
