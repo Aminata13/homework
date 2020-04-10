@@ -1,49 +1,77 @@
 .header {
     background-color: #042425;
-    height: 60px;
+    height: 70px;
 }
-.header .title {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    text-align: center;
+.header .logo {
+    float: left;
+    margin-left: 1%;
+    height: 100%;
+    width: 4%;
 }
-.content {
-    background-image: url("images/img-bg.jpg");
-    /* background-size: cover; */
-}
-.form-login {
-    width: 640px;
-    height: 360px;
-    position: absolute;
-    margin-top: -27.5%;
-    margin-left: 26.5%;
-    background-color: white;
-    border-radius: 5px;
-}
-.form {
-    margin-top: 7%;
+.header .logo img {
     width: 100%;
     height: 100%;
 }
+.header .title {
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 1.5%;
+    margin-left: 38%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+.content {
+    clear: both;
+    overflow: auto;
+    background-image: url("images/img-bg.jpg");
+    height: 550px;
+}
+.content .form-login {
+    width: 32%;
+    height: 320px;
+    margin-left: 35%;
+    margin-top: 6%;
+    background-color: white;
+    border-radius: 2px;
+}
+.form {
+    width: 100%;
+    height: 100%;
+}
+.form .form-header {
+    background-color: #51bfd0;
+    width: 100%;
+    height: 20%;
+    margin-bottom: 6%;
+}
+
+.form .form-header .form-header-text {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-top: 5.5%;
+    padding-left: 6%;
+    font-size: 15px;
+}
 .form .form-content {
-    width: 90%;
+    width: 85%;
     height: 4%;
     padding-bottom: 8%;
-    margin-bottom: 3%;
-    margin-left: 5%;
-    border: 1.5px solid #dedede;
+    margin-bottom: 5.5%;
+    margin-left: 7%;
+    border: 1.5px solid #f0eef0;
+    background-color: #f0eef0;
     border-radius: 5px;
 }
 .form .form-content .form-icon {
-    float: left;
-    width: 6%;
-    height: 250%;
-    margin-top: 3%;
+    float: right;
+    width: 4.5%;
+    height: 140%;
+    margin-top: 4%;
     padding-left: 4%;
     padding-right: 4%;
     text-align: center;
-    border-right: 1.5px solid #dedede;
 }
 .form .form-content .form-icon img {
     width: 100%;
@@ -63,26 +91,35 @@
     border: none;
     margin-left: 4%;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 13px;
+    background-color: #f0eef0;
 }
 ::placeholder { 
-    color: #dedede;
+    color: #999999;
+    font-size: 12px;
+    font-weight: bold;
     opacity: 1;
   }
-.submit {
-    margin-top: 5%;
-}
+
 .submit .button input{
-    float: right;
-    background-color: #9ad434;
-    width: 30%;
-    height: 60px;
-    border-radius: 6px;
-    color: white;
-    margin-right: 25px;
-    border-color: #9ad434;
-    font-size: 30px;
+    float: left;
+    height: 40px;
+    border-radius: 2px;
+    margin-left: 7%;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+}
+.submit .button1 input {
+    width: 25%;
+    background-color: #51bfd0;
+    color: white;
+}
+.submit .button2 input {
+    width: 35%;
+    color: #999999;
+    background-color: unset;
 }
 .error {
     margin-left: 3%;
