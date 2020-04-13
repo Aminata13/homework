@@ -1,0 +1,18 @@
+[
+    {
+        "login": "Taetae",
+        "password": "mochi",
+        "role": "player",
+        "surname": "Kim",
+        "firstname": "Taehyung",
+        "picture": "player picture"
+    },
+    {
+        "login": "admin",
+        "password": "admin",
+        "role": "admin",
+        "surname": "Aminata",
+        "firstname": "BA",
+        "picture":"admin picture"
+    }
+]

@@ -299,7 +299,27 @@ function get_sentence ($text) {
 }
 function trim_sentence ($sentence) {
     $sentence = preg_replace('#(^\s+)|(\s+$)#', '', $sentence);
-    $sentence = preg_replace('#\s\s+#', ' ', $sentence);
-    return $sentence;
+    return preg_replace('#\s\s+#', ' ', $sentence);
+}
+
+function authenticate($file, $login, $password) {
+    $data = file_get_contents($file); 
+    $obj = json_decode($data);
+    foreach ($obj as $element) {
+        if ($element->login == $login && $element->password == $password) {
+            return true;
+        }
+    }
+    return false;
+}
+function get_user($file, $login, $password){
+    $data = file_get_contents($file); 
+    $obj = json_decode($data);
+    foreach ($obj as $element) {
+        if ($element->login == $login && $element->password == $password) {
+            return $element;
+        }
+    }
+    return false;
 }
 ?>
