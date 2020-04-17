@@ -1,8 +1,12 @@
+body {
+ font-family: Helvetica, Open Sans, Myriad Pro;
+}
+
 .header {
     background-color: #042425;
     height: 70px;
 }
-.header .logo, .header-admin .logo {
+.header .logo, .admin-header .logo {
     float: left;
     margin-left: 1%;
     height: 100%;
@@ -18,16 +22,15 @@ img {
     font-weight: bold;
     margin-top: 1.5%;
     margin-left: 38%;
-    font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
 .content {
     clear: both;
     overflow: auto;
-    background-image: url("images/img-bg.jpg");
+    background-image: url("../img/img-bg.jpg");
     height: 550px;
 }
-.content .form-login {
+.content .container {
     width: 33%;
     height: 360px;
     margin-left: 35%;
@@ -48,7 +51,6 @@ img {
 
 .form .form-header .form-header-text {
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     padding-top: 5.5%;
     padding-left: 6%;
@@ -58,7 +60,6 @@ img {
     width: 85%;
     height: 4%;
     padding-bottom: 8%;
-    margin-bottom: 5%;
     margin-left: 7%;
     border: 1.5px solid #f0eef0;
     background-color: #f0eef0;
@@ -90,7 +91,6 @@ img {
     height: 100%;
     border: none;
     margin-left: 4%;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     background-color: #f0eef0;
 }
@@ -109,7 +109,6 @@ img {
     border: none;
     font-size: 13px;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
 }
 .submit .button1 input {
@@ -123,33 +122,35 @@ img {
     background-color: unset;
 }
 .error {
+    height: 2%;
+    margin-bottom: 5%;
     margin-left: 7%;
     color: #ff0000;
     font-size: 13px;
 }
 /*-----------------------------------------------------------------------------------------------------------------*/
 
-.header-admin {
+.admin-header {
     background-color: #51bfd0;
     height: 70px;
     overflow: auto;
+    margin: 0.5% 1.5%;
 }
-.header-admin .title {
+.admin-header .title {
     font-size: 25px;
     font-weight: bold;
     text-align: center;
-    margin-left: 10%;
-    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 11%;
     color: white;
     width: 80%;
 }
-.header-admin .title-admin {
+.admin-header .title-admin {
     margin-top: 1.5%;
 }
-.header-admin .title-player {
+.admin-header .title-player {
     margin-top: 0.5%;
 }
-.header-admin .button {
+.admin-header .button, .btn-next, .btn-previous {
     float: right;
     background-color: #3addd6;
     border: #3addd6;
@@ -158,13 +159,124 @@ img {
     cursor: pointer;
     margin-right: 2%;
     font-size: 15px;
-    font-weight: 500;
-    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
     border-radius: 3px;
+    font-family: 'Open Sans';
   }
-  .header-admin .button-admin {
+.admin-header .button-admin {
     margin-top: -2.3%;
-  }
-  .header-admin .button-player {
+}
+.admin-header .button-player {
     margin-top: -3.5%;
-  }
+}
+.admin-content {
+    background-color: #eae7e4;
+    width: 97%;
+    margin-left: 1.5%;
+    height: 83%;
+    overflow: auto;
+}
+.admin-content .menu {
+    float: left;
+    width: 30%;
+    height: 55%;
+    margin: 3% 1%;
+    position: absolute;
+    border: 1px groove #f2f2f2;
+    border-radius: 2%;
+}
+.menu .menu-header {
+    height: 40%;
+    overflow: auto;
+    background-image: linear-gradient(to bottom, rgba(74,185,202,0), rgb(74, 185, 202));
+}
+.menu .menu-header .avatar {
+    float: left;
+    width: 20%;
+    height: 62%;
+    margin: 4% 6%;
+    margin-right: 3%;
+    padding: 2%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.menu .menu-header .text {
+    font-weight: bold;
+    color: white;
+    font-size: large;
+}
+.surname {
+    margin-top: 9%;
+}
+.firstname {
+    margin-left: 40%;
+}
+.menu .menu-content {
+    height: 60%;
+    background-color: white;
+    overflow: auto;
+}
+.menu-content .menu-tab {
+    height: 20%;
+    margin-top: 2%;
+}
+.menu-content .active {
+    background-color: #f8f3f0;
+    border-left: 5px solid #4daf7b;
+}
+.menu-content .menu-tab .tab-title {
+    float: left;
+    margin-left: 5%;
+    padding-top: 2.5%;
+    color: #8e8071;
+}
+.menu-content .menu-tab .icon-tab {
+    float: right;
+    margin-right: 3%;
+    height: 50%;
+    padding-top: 2%;
+}
+.admin-content .container {
+    width: 60%;
+    height: 93%;
+    margin: 1%;
+    position: relative;
+    left: 32.3%;
+    border: 1px groove #f2f2f2;
+    border-radius: 1%;
+}
+.admin-content .container .title, p {
+    text-align: center;
+    color: #8e8071;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Open Sans';
+    margin: 2.5% 0%;
+}
+.admin-content .container .list {
+    width: 90%;
+    height: 70%;
+    margin-left: 6%;
+    border: 1px solid #51bfd0;
+    border-radius: 17px;
+    margin-bottom: 1%;
+}
+.list .list-column {
+    float: left;
+    width: 30%;
+    height: 95%;
+    margin-right: 3%;
+    text-align: center;
+}
+.list-column p {
+    font-family: Helvetica;
+    font-style: normal; 
+}
+.list-column div {
+    color: #8e8071;
+}
+.btn-previous {
+    float: left;
+    margin-left: 2%;
+}

@@ -1,12 +1,15 @@
 <?php
 session_start();
-require_once('../tp4-tableaux/functions.php');
+require_once('../functions.php');
 if (isset($_SESSION['user'])) {
     $player = $_SESSION['user'];
 }
 if (isset($_POST['logout'])) {
     session_destroy();
-    header('Location: login.php');
+    header('Location: ../../index.php');
+}
+if (!isset($_SESSION['statut'])){
+    header('Location: ../../index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -14,11 +17,11 @@ if (isset($_POST['logout'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
     <title>Player</title>
 </head>
 <body>
-    <header class="header-admin">
+    <header class="admin-header">
         <div class="logo"><img src="images/logo-QuizzSA.png" alt=""></div>
         <div class="title title-player">BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ <br> JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</div>
         <form action="" method="post">
@@ -28,9 +31,9 @@ if (isset($_POST['logout'])) {
     <div class="">
         <?php
             if (isset($player)) {
-                echo 'Nom: ' .$player->surname;
-                echo '<br>Prénom: ' .$player->firstname;
-                echo '<br>Profile picture: ' .$player->picture;
+                echo 'Nom: ' .$player['surname'];
+                echo '<br>Prénom: ' .$player['firstname'];
+                echo '<br>Profile picture: ' .$player['avatar'];
             }
         ?>
     </div>
