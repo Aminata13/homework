@@ -24,6 +24,9 @@ require_once('functions.php');
                 $errors['form'] = 'Login ou mot de passe incorrect';
             }
         }
+        if (isset($_POST['signup'])) {
+            require_once('src/user-registration.php');
+        }
     ?>
     <div class="container">
         <form class="form" method="POST" id="login-form">

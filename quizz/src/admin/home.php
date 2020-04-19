@@ -53,7 +53,8 @@ if (!isset($_SESSION['statut'])){
         </div>
         <div class="container">
             <?php
-                require_once('src/player/list.php');
+                require_once('src/user-registration.php');
+                // require_once('src/player/list.php');
             ?>
         </div>
     </div>

@@ -150,7 +150,7 @@ img {
 .admin-header .title-player {
     margin-top: 0.5%;
 }
-.admin-header .button, .btn-next, .btn-previous {
+.admin-header .button, .btn-next, .btn-previous, .btn-file, .btn-signup {
     float: right;
     background-color: #3addd6;
     border: #3addd6;
@@ -279,4 +279,105 @@ img {
 .btn-previous {
     float: left;
     margin-left: 2%;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+.content .user-form {
+    width: 50%;
+    height: 95%;
+    background-color: white;
+    border-radius: 5px;
+    margin: 0.3% auto;
+}
+.container .user-form {
+    width: 100%;
+    height: 100%;
+}
+.form-inputs {
+    float: left;
+    width: 60%;
+    height: 91%;
+}
+.form-avatar {
+    float: right;
+    width: 35%;
+    height: 100%;
+}
+.user-form-header {
+    width: 100%;
+    height: 12%;
+    margin: 2.5% 0% -1.7%;
+}
+.user-form-header .user-form-title {
+    margin-left: 7%;
+    color: #464646;
+    font-size: 22px;
+    font-weight: bold;
+}
+.user-form-header .text {
+    font-size: 14px;
+    margin: 1% 7% 0%;
+    color: #bbbbbb;
+}
+.form-inputs .input-container {
+    width: 100%;
+    height: 13.3%;
+}
+.input-container .form-label {
+    margin-left: 7%;
+    font-size: 12px;
+    font-weight: bold;
+    color: #888888;
+}
+.input-container .user-form-input {
+    margin: 1% 0% 0% 7%;
+    width: 85.4%;
+    height: 65%;
+}
+.user-form-input input {
+    width: 96%;
+    height: 92%;
+    border: none;
+    background-color: whitesmoke;
+    border-radius: 7px;
+    padding-left: 4%;
+    font-size: larger;
+    font-weight: 700px;
+    color: #888888;
+}
+input:focus {
+    outline: 2.5px solid #51bfd0;
+}
+.submit .submit-text {
+    margin-left: 7%;
+    float: left;
+    margin-top: 2.5%;
+}
+.submit .btn-file {
+    float: right;
+    margin: 2% 7% 0% 0%;
+    padding: 1% 1%;
+    font-size: 16px;
+    background-color: #51bfd0;
+    border-color: #51bfd0;
+    outline: none;
+}
+.submit .btn-signup {
+    clear: both;
+    margin: 2.3% 36% 0%;
+    padding: 2% 2%;
+    font-size: 16px;
+    background-color: #51bfd0;
+    border-color: #51bfd0;
+    outline: none;
+}
+.form-avatar .avatar {
+    width: 69%;
+    height: 33%;
+    margin: 10% auto 3% auto;
+    padding: 2%;
+    border: 3px solid #51bfd0;
+    border-radius: 50%;
+}
+.form-avatar .avatar-legend {
+    margin-left: 28%;
 }
