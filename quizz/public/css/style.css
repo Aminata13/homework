@@ -227,6 +227,11 @@ img {
     background-color: #f8f3f0;
     border-left: 5px solid #4daf7b;
 }
+.menu-content a:active {
+    background-color: #f8f3f0;
+    border-left: 5px solid #4daf7b;
+    width: 100%;
+}
 .menu-content .menu-tab .tab-title {
     float: left;
     margin-left: 5%;
@@ -472,6 +477,44 @@ input[type="file"] {
     border-radius: 19px;
     background-color: white;
 }
+.top-player {
+    float: left;
+    width: 50%;
+}
+.top-player div {
+    font-weight: bold;
+    margin: 5% 2% 6%;
+}
+.top-score {
+    float: right;
+    width: 35%;
+}
+.top-score div {
+    float: right;
+    font-weight: bold;
+    font-size: 14.5px;
+    margin: 7.5% 0% 0% 2%;
+}
+.score1 {
+    border-bottom: 4px solid #50dac2;
+    border-radius: 2px;
+}
+.score2 {
+    border-bottom: 4px solid #88f6f4;
+    border-radius: 2px;
+}
+.score3 {
+    border-bottom: 4px solid #f8b513;
+    border-radius: 2px;
+}
+.score4 {
+    border-bottom: 4px solid #ef7e05;
+    border-radius: 2px;
+}
+.score5 {
+    border-bottom: 4px solid #f1f1f1;
+    border-radius: 2px;
+}
 /* Style the tab */
 .tab {
     overflow: hidden;
@@ -510,6 +553,7 @@ input[type="file"] {
   
   /* Create an active/current tablink class */
   .tab button.active {
+    color: #888888;
     background-color: white;
   }
   

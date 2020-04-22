@@ -63,7 +63,7 @@ require_once('functions.php');
             })
         }
         
-        document.getElementById('login-form').addEventListener('submit', function(e){
+        document.getElementById('btn-login').addEventListener('click', function(e){
             const inputs = document.getElementsByTagName('input');
             console.log('inputs');
             var error = false;

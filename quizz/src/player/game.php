@@ -7,20 +7,20 @@ if (isset($_POST['logout'])) {
     session_destroy();
     header('Location: index.php');
 }
+$players = get_players();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/css/style.css">
     <title>Game</title>
 </head>
 <body>
     <header class="game-header">
         <div class="avatar">
             <img src="<?= $player['avatar'] ?>" alt="">
-            <div class="user"><?php echo $player['surname']. ' ' .my_to_upper_string($player['firstname']); ?></div>
+            <div class="user"><?php echo $player['surname']. ' ' .mb_strtoupper($player['firstname']); ?></div>
         </div>
 
         <div class="title title-player">BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ <br> JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</div>
@@ -33,25 +33,53 @@ if (isset($_POST['logout'])) {
     <div class="game-content">
         <div class="score">
             <div class="tab">
-                <button class="tablink1" onclick="openCity(event, 'London')" id="defaultOpen">Top scores</button>
-                <button class="tablink2" onclick="openCity(event, 'Paris')">Mon meilleur score</button>
+                <button class="tablinks tablink1" onclick="openTab(event, 'top-scores')" id="defaultOpen">Top scores</button>
+                <button class="tablinks tablink2" onclick="openTab(event, 'score')">Mon meilleur score</button>
             </div>
 
-            <div id="London" class="tabcontent">
-                <h3>London</h3>
-                <p>London is the capital city of England.</p>
+            <div id="top-scores" class="tabcontent">
+                <div class="top-player">
+                    <?php
+                        for ($i=0; $i < 5 ; $i++) { 
+                            echo '<div>';
+                            echo $players[$i]['surname']. ' ' .mb_strtoupper($players[$i]['firstname']);
+                            echo '</div>';
+                        }
+                    ?>
+                </div>
+                <div class="top-score">
+                    <?php
+                        for ($i=0; $i < 5 ; $i++) { 
+                            echo '<div class="score'.($i+1).'">';
+                            echo $players[$i]['score']. ' pts';
+                            echo '</div>';
+                        }
+                    ?>
+                </div>
             </div>
 
-            <div id="Paris" class="tabcontent">
-                <h3>Paris</h3>
-                <p>Paris is the capital of France.</p> 
+            <div id="score" class="tabcontent">
+                <div class="top-player">
+                    <div>
+                        <?php
+                            echo $player['surname']. ' ' .mb_strtoupper($player['firstname']);
+                        ?>
+                    </div>
+                </div>
+                <div class="top-score">
+                    <div class="score1">
+                        <?php
+                            echo $player['score']. ' pts';
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="questions"></div>
     </div>
 
     <script>
-        function openCity(evt, cityName) {
+        function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
@@ -61,7 +89,7 @@ if (isset($_POST['logout'])) {
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(cityName).style.display = "block";
+            document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
 

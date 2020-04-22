@@ -25,8 +25,8 @@ if (isset($_POST['logout'])) {
         <div class="menu">
             <div class="menu-header">
                 <div class="avatar"><img src="<?= $admin['avatar'] ?>" alt=""></div>
-                <div class="text surname"><?php echo my_to_upper_string($admin['surname']); ?></div>
-                <div class="text firstname"><?php echo my_to_upper_string($admin['firstname']); ?></div>
+                <div class="text surname"><?php echo mb_strtoupper($admin['surname']); ?></div>
+                <div class="text firstname"><?php echo mb_strtoupper($admin['firstname']); ?></div>
             </div>
             <div class="menu-content">
                 <div class="menu-tab">
@@ -75,5 +75,10 @@ if (isset($_POST['logout'])) {
             ?>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $("a[href*='" + window.location.href + "']").addClass("active");
+        });
+    </script>
 </body>
 </html>
