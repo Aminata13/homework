@@ -16,16 +16,17 @@ require_once('functions.php');
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             $username = test_input($_POST["username"]);
             $password = test_input($_POST["password"]);
-            if (authenticate($file, $username, $password)) {
-                $_SESSION['user'] = get_user($file, $username, $password);
-                $_SESSION['statut'] = 'login';
-                header('Location: index.php');
-            } else {
+            $result = authenticate($username, $password);
+            if ($result == 'error') {
                 $errors['form'] = 'Login ou mot de passe incorrect';
+            } else {
+                $_SESSION['user'] = get_user($username, $password);
+                $_SESSION['statut'] = 'login';
+                header('Location: index.php?lien='.$result);
             }
         }
         if (isset($_POST['signup'])) {
-            require_once('src/user-registration.php');
+            header('Location: index.php?lien=signup');
         }
     ?>
     <div class="container">
@@ -44,7 +45,7 @@ require_once('functions.php');
             </div>
             <div class="error" id="password-error"><?php if(!empty($errors['form'])){echo $errors['form'];} ?></div>
             <div class="submit">
-                <div class="button button1"><input type="submit" name="login" value="Connexion"></div>
+                <div class="button button1"><input type="submit" name="login" value="Connexion" id="btn-login"></div>
             </div>
             <div class="submit">
                 <div class="button button2"><input type="submit" name="signup" value="S'inscrire pour jouer?"></div>
@@ -61,6 +62,7 @@ require_once('functions.php');
                 }
             })
         }
+        
         document.getElementById('login-form').addEventListener('submit', function(e){
             const inputs = document.getElementsByTagName('input');
             console.log('inputs');

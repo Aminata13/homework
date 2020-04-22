@@ -13,18 +13,25 @@ require_once('src/functions.php');
 </head>
 <body>
     <header class="header">
-        <div class="logo"><img src="public/img/logo-QuizzSA.png" alt=""></div>
+        <div class="logo"><a href="index.php"><img src="public/img/logo-QuizzSA.png" alt="logo du jeu"></a></div>
         <div class="title">Le Plaisir de Jouer</div>
     </header>
     <div class="content">
         <?php
-        if (isset($_SESSION['user'])) {
-            if ($_SESSION['user']['role']=="admin") {
+        if (isset($_GET['lien'])) {
+            if ($_GET['lien']=="home") {
                 require_once('src/admin/home.php');
-            } else {
-                header('Location: src/player/game.php');
+            } elseif($_GET['lien']=="game") {
+                require_once('src/player/game.php');
+            } elseif ($_GET['lien']=="signup") {
+                $_SESSION['message'] = 'Pour tester votre niveau de culture générale';
+                $_SESSION['legend'] = 'Avatar du joueur';
+                require_once('src/user-registration.php');
             }
         } else {
+            if (!isset($_SESSION['statut']) && isset($_GET['statut']) && isset($_GET['statut'])=='logout') {
+                log_out();
+            }
             require_once('src/login.php');
         }
         ?>

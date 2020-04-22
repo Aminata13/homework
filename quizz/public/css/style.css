@@ -6,7 +6,7 @@ body {
     background-color: #042425;
     height: 70px;
 }
-.header .logo, .admin-header .logo {
+.header .logo {
     float: left;
     margin-left: 1%;
     height: 100%;
@@ -36,7 +36,7 @@ img {
     margin-left: 35%;
     margin-top: 6%;
     background-color: white;
-    border-radius: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .form {
     width: 100%;
@@ -122,7 +122,7 @@ img {
     background-color: unset;
 }
 .error {
-    height: 2%;
+    height: 1%;
     margin-bottom: 5%;
     margin-left: 7%;
     color: #ff0000;
@@ -130,13 +130,13 @@ img {
 }
 /*-----------------------------------------------------------------------------------------------------------------*/
 
-.admin-header {
+.admin-header, .game-header {
     background-color: #51bfd0;
     height: 70px;
     overflow: auto;
     margin: 0.5% 1.5%;
 }
-.admin-header .title {
+.admin-header .title, .game-header .title {
     font-size: 25px;
     font-weight: bold;
     text-align: center;
@@ -147,10 +147,7 @@ img {
 .admin-header .title-admin {
     margin-top: 1.5%;
 }
-.admin-header .title-player {
-    margin-top: 0.5%;
-}
-.admin-header .button, .btn-next, .btn-previous, .btn-file, .btn-signup {
+.admin-header .button, .game-header .button, .btn-next, .btn-previous, .btn-file, .btn-signup {
     float: right;
     background-color: #3addd6;
     border: #3addd6;
@@ -161,20 +158,19 @@ img {
     font-size: 15px;
     font-weight: 400;
     border-radius: 3px;
-    font-family: 'Open Sans';
+    /* font-family: 'Open Sans'; */
+    text-decoration: none;
   }
 .admin-header .button-admin {
     margin-top: -2.3%;
 }
-.admin-header .button-player {
-    margin-top: -3.5%;
-}
-.admin-content {
+.admin-content, .game-content {
     background-color: #eae7e4;
     width: 97%;
     margin-left: 1.5%;
     height: 83%;
     overflow: auto;
+    margin-top: -0.5%;
 }
 .admin-content .menu {
     float: left;
@@ -184,6 +180,8 @@ img {
     position: absolute;
     border: 1px groove #f2f2f2;
     border-radius: 2%;
+    overflow: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .menu .menu-header {
     height: 40%;
@@ -198,6 +196,11 @@ img {
     margin-right: 3%;
     padding: 2%;
     border: 1px solid black;
+    border-radius: 50%;
+}
+.menu .menu-header .avatar img {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 .menu .menu-header .text {
@@ -230,6 +233,10 @@ img {
     padding-top: 2.5%;
     color: #8e8071;
 }
+.menu-tab .tab-title a {
+    text-decoration: none;
+    color: #8e8071;
+}
 .menu-content .menu-tab .icon-tab {
     float: right;
     margin-right: 3%;
@@ -238,8 +245,8 @@ img {
 }
 .admin-content .container {
     width: 60%;
-    height: 93%;
-    margin: 1%;
+    height: 94%;
+    margin: 1% 1% 0%;
     position: relative;
     left: 32.3%;
     border: 1px groove #f2f2f2;
@@ -283,12 +290,12 @@ img {
 /*----------------------------------------------------------------------------------------------------------------*/
 .content .user-form {
     width: 50%;
-    height: 95%;
+    height: 98%;
     background-color: white;
     border-radius: 5px;
     margin: 0.3% auto;
 }
-.container .user-form {
+.admin-content .container .user-form {
     width: 100%;
     height: 100%;
 }
@@ -296,6 +303,11 @@ img {
     float: left;
     width: 60%;
     height: 91%;
+}
+.admin-content .form-inputs {
+    float: left;
+    width: 60%;
+    height: 83%;
 }
 .form-avatar {
     float: right;
@@ -320,18 +332,36 @@ img {
 }
 .form-inputs .input-container {
     width: 100%;
-    height: 13.3%;
+    height: 12%;
+}
+.admin-content .form-inputs .input-container {
+    width: 100%;
+    height: 11%;
 }
 .input-container .form-label {
     margin-left: 7%;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bold;
     color: #888888;
 }
+.admin-content .input-container .form-label {
+    font-size: 11px;
+}
 .input-container .user-form-input {
     margin: 1% 0% 0% 7%;
-    width: 85.4%;
-    height: 65%;
+    width: 84%;
+    height: 60%;
+}
+.user-form-error {
+    height: 1%;
+    margin-bottom: 3%;
+    margin-left: 7%;
+    color: #ff0000;
+    font-size: 11px;
+}
+.upload {
+    margin: 3% 0% 0% 20%;
+    font-size: 14px;
 }
 .user-form-input input {
     width: 96%;
@@ -345,39 +375,147 @@ img {
     color: #888888;
 }
 input:focus {
-    outline: 2.5px solid #51bfd0;
+    outline: 2px solid #51bfd0;
 }
 .submit .submit-text {
     margin-left: 7%;
     float: left;
-    margin-top: 2.5%;
+    font-size: 16px;
 }
 .submit .btn-file {
     float: right;
-    margin: 2% 7% 0% 0%;
+    margin: 0% 9.2% 0% 0%;
     padding: 1% 1%;
-    font-size: 16px;
+    font-size: 15px;
     background-color: #51bfd0;
     border-color: #51bfd0;
     outline: none;
+}
+input[type="file"] {
+    display: none;
 }
 .submit .btn-signup {
     clear: both;
-    margin: 2.3% 36% 0%;
+    margin: 2% 36% 0%;
     padding: 2% 2%;
-    font-size: 16px;
+    font-size: 14px;
     background-color: #51bfd0;
     border-color: #51bfd0;
     outline: none;
 }
-.form-avatar .avatar {
-    width: 69%;
-    height: 33%;
-    margin: 10% auto 3% auto;
+.content .user-form .form-avatar .avatar {
+    width: 60%;
+    height: 27%;
+    margin: 10% auto 4% auto;
     padding: 2%;
     border: 3px solid #51bfd0;
     border-radius: 50%;
 }
-.form-avatar .avatar-legend {
-    margin-left: 28%;
+.content .user-form .form-avatar .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
+.content .form-avatar .avatar-legend {
+    margin-left: 29%;
+}
+.container .user-form .form-avatar .avatar {
+    width: 48%;
+    height: 30%;
+    margin: 10% auto 4% auto;
+    padding: 2%;
+    border: 3px solid #51bfd0;
+    border-radius: 50%;
+}
+.container .form-avatar .avatar-legend {
+    margin-left: 35%;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+.game-header .title-player {
+    margin-top: 0.5%;
+}
+.game-header .btn-player {
+    margin-top: -3.5%;
+}
+.game-header .avatar {
+    float: left;
+    width: 10%;
+    height: 100%;
+}
+.game-header .avatar img {
+    width: 40%;
+    height: 67%;
+    margin: 1% 0% -2% 10%;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.game-header .user {
+    color: white;
+    font-size: 13px;
+    margin-left: 7%;
+    font-weight: bold;
+}
+.game-content .score {
+    float: right;
+    width: 23%;
+    height: 75%;
+    margin: 3% 5% 0% 0%;
+    border-radius: 2%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.game-content .questions {
+    width: 67%;
+    height: 95%;
+    margin: 0.5% 0% 0% 4%;
+    border: 1.5px solid #51bfd0;
+    border-radius: 19px;
+    background-color: white;
+}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    width: 100%;
+    background-color: #eae7e4;
+}
+ .score .tab .tablink1 {
+      width: 40%;
+      font-size: 12px;
+      font-weight: bold;
+      color: #51bfd0;
+  }
+ .score .tab .tablink2 {
+      width: 60%;
+      font-size: 12px;
+      font-weight: bold;
+      color: #51bfd0;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: white;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    height: 80%;
+  }
