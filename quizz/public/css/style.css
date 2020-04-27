@@ -171,6 +171,7 @@ img {
     height: 83%;
     overflow: auto;
     margin-top: -0.5%;
+    /* overflow: hidden; */
 }
 .admin-content .menu {
     float: left;
@@ -379,7 +380,7 @@ img {
     font-weight: 700px;
     color: #888888;
 }
-input:focus {
+input:focus, select:focus, textarea:focus {
     outline: 2px solid #51bfd0;
 }
 .submit .submit-text {
@@ -520,18 +521,21 @@ input[type="file"] {
     overflow: hidden;
     width: 100%;
     background-color: #eae7e4;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.score .tab .tablinks {
+    font-size: 12px;
+    font-weight: bold;
+    color: #51bfd0;
 }
  .score .tab .tablink1 {
       width: 40%;
-      font-size: 12px;
-      font-weight: bold;
-      color: #51bfd0;
+      border-top-left-radius: 8px;
   }
  .score .tab .tablink2 {
       width: 60%;
-      font-size: 12px;
-      font-weight: bold;
-      color: #51bfd0;
+      border-top-right-radius: 8px;
   }
   
   /* Style the buttons inside the tab */
@@ -562,4 +566,150 @@ input[type="file"] {
     display: none;
     padding: 6px 12px;
     height: 80%;
+  }
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+  .create-questions-header {
+    text-align: center;
+    color: #51bfd0;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Open Sans';
+    margin: 1.5% 0%;
+  }
+  .create-questions-container {
+    width: 90%;
+    height: 86%;
+    margin: 0% auto 1%;
+    border: 1px solid #51bfd0;
+    border-radius: 17px;
+    overflow: visible;
+  }
+  .create-questions-container .form-content-questions {
+      width: 95%;
+      height: 22%;
+      margin: 1% auto 0%;
+  }
+  .form-content-questions label, .form-content-score label, .form-content-type label, .text-answer div, .simple-answer div, .multiple-answer div {
+      float: left;
+      width: 11%;
+      height: 30%;
+      margin: 3.7% 0.3% 0% 0%;
+      font-family: 'Open Sans';
+      color: #6c6c6c;
+  }
+  .create-questions-container input, .create-questions-container select, .text-answer textarea {
+        background-color: #f7f7f7;
+        border-right: 0.8px solid #51bfd0;
+        border-bottom: 1.6px solid #51bfd0;
+        border-top: none;
+        border-left: none;
+  }
+  .form-content-questions input {
+      width: 88%;
+      height: 92%;
+  }
+  .create-questions-container .form-content-score, .form-content-type {
+      width: 95%;
+      height: 9%;
+      margin: 1% auto 0%; 
+  }
+  .form-content-score label, .form-content-type label {
+      width: 20%;
+      margin: 0.8% 0.3% 0% 0%;
+  }
+  .form-content-score label {
+      width: 21%;
+  }
+  .form-content-score input {
+      width: 9%;
+      height: 84%;
+      margin-left: 1.4%;
+  }
+  
+  .form-content-type select {
+      float: left;
+      width: 71%;
+      height: 100%;
+      margin: 0% 1% 0% 1.4%;
+      font-size: 15px;
+      padding: 1%;
+  }
+  .form-content-type select option {
+      color: black;
+      font-size: 15px;
+  }
+  .form-content-type img {
+      width: 6%;
+  }
+  .create-questions-container .answers-container {
+      margin: 2% auto 0%;
+      width: 96%;
+      height: 29%;
+      margin-left: 3%;
+  }
+  .answers-container .text-answer {
+      display: none;
+  }
+  .answers-container .text-answer div {
+      margin-top: 5%;
+      margin-right: 0.67%;
+  }
+  .answers-container .simple-answer, .answers-container .multiple-answer  {
+      height: 25%;
+      margin-bottom: 1%;
+      display: none;
+  }
+  .simple-answer div, .multiple-answer div {
+      width: 12%;
+      margin: 1% 0%;
+  }
+  .simple-answer input[type="text"], .multiple-answer input[type="text"] {
+      float: left;
+      width: 78%;
+      height: 90%;
+      margin-left: 1%;
+  }
+  .simple-answer input[type="radio"], .multiple-answer input[type="checkbox"] {
+      float: left;
+      margin: 1.5% 0.8% 0% 1.5%;
+  }
+  .simple-answer img, .multiple-answer img {
+    width: 3%;
+    height: 70%;
+    margin-top: 0.7%;
+  }
+  .btn-create{
+      width: 100%;
+      height: 10%;
+  }
+  .btn-create input {
+    background-color: #3addd6;
+    margin-top: 0.5%;
+    margin-right: 3%;
+  }
+  #new-fields-container {
+      height: 100%;
+  }
+  .create-questions-error {
+    height: 1%;
+    margin-bottom: 2.5%;
+    margin-left: 13.2%;
+    color: #ff0000;
+    font-size: 11px;
+  }
+  .score-error {
+      margin-left: 24.2%;
+  }
+  .type-error {
+      margin-left: 23.2%;
+      margin-top: 0.2%;
+  }
+  .answer-error {
+      margin-left: 12%;
+      display: none;
+  }
+  .text-answer-error, .simple-answer-error, .multiple-answer-error {
+      display: none;
   }

@@ -11,7 +11,7 @@
     }
 
     function set_data (array $tab, $file='users') {
-        $temp = get_data();
+        $temp = get_data($file);
         array_push($temp, $tab);
         $data = json_encode($temp);
         file_put_contents('data/'.$file.'.json', $data);
@@ -173,4 +173,92 @@
             echo ' <a href="'.$link.($_SESSION['pageActuelle']+1).'" class="btn-next">Suivant</a> ';
         }
      }
+    function is_string_inside ($tab, $string) {
+        $result = array();
+        foreach ($tab as $key => $value) {
+            if (strpos($key, $string) !== false) {
+                $result[] = $key;
+            }
+        }
+        return $result;
+    }
+    function create_text_question($inputs) {
+
+    }
+    function create_questions($question, $score, $type, $inputs, $tab1, $tab2) {
+        $answer['question'] = $question;
+        $answer['score'] = $score;
+        $answer['type'] = $type;
+        if ($type == 'text') {
+            $answer['answer']['text'] = $inputs['textarea'];
+            $answer['answer']['result'] = true;
+            set_data($answer, 'questions');
+        }  elseif ($type == 'simple') {
+            $i = 1;
+            foreach ($tab1 as $key => $value) {
+                $answer['answer'.$i]['text'] = $inputs[$value];
+                if ($value == $inputs['simple-answer']) {
+                    $answer['answer'.$i]['result'] = true;
+                } else {
+                    $answer['answer'.$i]['result'] = false;
+                }
+                $i++;
+            }
+            set_data($answer, 'questions');
+        } elseif($type == 'multiple') {
+            $j = 1;
+            foreach ($tab2 as $key => $value) {
+                if ($value !== 'textarea') {
+                    $answer['answer'.$j]['text'] = $inputs[$value];
+                    if (isset($inputs['answer'.$j]) && $value == $inputs['answer'.$j]) {
+                        $answer['answer'.$j]['result'] = true;
+                    } else {
+                        $answer['answer'.$j]['result'] = false;
+                    }
+                    $j++;
+                }
+            }
+            set_data($answer, 'questions');
+        }
+    }
+
+    function validate_form_questions($inputs) {
+        if (empty($inputs["question"])) {
+            $errors['question'] = "*Champ Obligatoire";
+        } 
+        if (empty($inputs["score"])) {
+            $errors['score'] = "*Champ Obligatoire";
+        } 
+        if (empty($inputs["type"])){
+            $errors['type'] = "*Champ Obligatoire";
+        } else {
+            if ($inputs["type"] == "text" && empty($inputs["textarea"])) {
+                $errors['text-answer'] = "*Champ Obligatoire";
+            } elseif ($inputs["type"] == "simple") {
+                if (!isset($inputs['simple-answer'])) {
+                    $errors['type'] = "*Veuillez cocher la bonne réponse";
+                }
+                $simpleAnswers = is_string_inside($inputs, 'label');
+                foreach ($simpleAnswers as $key => $value) {
+                    if (empty($inputs[$value])) {
+                        $errors['simple-answer'] = "*Veuillez remplir tous les champs réponse";
+                    break;
+                    }
+                }
+            } elseif ($inputs["type"] == "multiple") {
+                $answers = is_string_inside($inputs, 'answer');
+                if (count($answers) < 2) {
+                    $errors['type'] = "*Veuillez cocher 2 réponses au moins";
+                }
+                $multipleAnswers = is_string_inside($inputs, 'text');
+                foreach ($multipleAnswers as $key => $value) {
+                    if ($value!=="textarea" && empty($inputs[$value])) {
+                        $errors['multiple-answer'] = "*Veuillez remplir tous les champs réponse";
+                    break;
+                    }
+                }
+            }
+        }
+        return $errors;
+    }
 ?>

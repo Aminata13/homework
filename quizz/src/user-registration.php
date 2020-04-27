@@ -117,7 +117,6 @@ require_once('functions.php');
         }
         document.getElementById('signup-form').addEventListener('submit', function(e){
             const inputs = document.getElementsByTagName('input');
-            console.log('inputs');
             var error = false;
             for (input of inputs) {
                 if (input.hasAttribute('error')){

@@ -13,7 +13,6 @@ if (isset($_POST['logout'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/css/style.css">
     <title>Admin</title>
 </head>
 <body>
@@ -76,9 +75,9 @@ if (isset($_POST['logout'])) {
         </div>
     </div>
     <script>
-        $(document).ready(function(){
-            $("a[href*='" + window.location.href + "']").addClass("active");
-        });
+        // $(document).ready(function(){
+        //     $("a[href*='" + window.location.href + "']").addClass("active");
+        // });
     </script>
 </body>
 </html>

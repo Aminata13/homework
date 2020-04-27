@@ -1,0 +1,66 @@
+[
+  {
+    "question": "Que connaissez-vous du langage PHP?",
+    "score": 3,
+    "type": "text",
+    "answer": { "text": "Pas grand chose, leave me alone.", "result": true }
+  },
+  {
+    "question": "Que d\u00e9signe le sigle HTML?",
+    "score": 5,
+    "type": "simple",
+    "answer1": { "text": "Blabla", "result": false },
+    "answer2": { "text": "HyperText Markup Langage", "result": true },
+    "answer3": { "text": "Lalala", "result": false }
+  },
+  {
+    "question": "Quels sont les langages de programmation que vous connaissez?",
+    "score": 7,
+    "type": "multiple",
+    "answer1": { "text": "HTML", "result": false },
+    "answer2": { "text": "Java", "result": true },
+    "answer3": { "text": "C#", "result": true },
+    "answer4": { "text": "Lalala", "result": false }
+  },
+  {
+    "question": "Question de type texte?",
+    "score": "3",
+    "type": "text",
+    "answer": {
+      "text": "Je teste juste les questions de type texte.",
+      "result": true
+    }
+  },
+  {
+    "question": "Question de type simple?",
+    "score": "5",
+    "type": "simple",
+    "answer1": { "text": "Une fois", "result": false },
+    "answer2": { "text": "Deux fois", "result": true },
+    "answer3": { "text": "Trois fois", "result": false }
+  },
+  {
+    "question": "Question de type simple?",
+    "score": "5",
+    "type": "simple",
+    "answer1": { "text": "Une fois", "result": false },
+    "answer2": { "text": "Deux fois", "result": true },
+    "answer3": { "text": "Trois fois", "result": false }
+  },
+  {
+    "question": "Question de type simple?",
+    "score": "5",
+    "type": "simple",
+    "answer1": { "text": "Une fois", "result": false },
+    "answer2": { "text": "Deux fois", "result": true },
+    "answer3": { "text": "Trois fois", "result": false }
+  },
+  {
+    "question": "Question de type multiple?",
+    "score": "7",
+    "type": "multiple",
+    "answer1": { "text": "Une fois", "result": true },
+    "answer2": { "text": "Une deux ", "result": true },
+    "answer3": { "text": "Trois", "result": false }
+  }
+]
