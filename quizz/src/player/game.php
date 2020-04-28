@@ -3,10 +3,6 @@ is_connected();
 if (isset($_SESSION['user'])) {
     $player = $_SESSION['user'];
 }
-if (isset($_POST['logout'])) {
-    session_destroy();
-    header('Location: index.php');
-}
 $players = get_players();
 ?>
 <!DOCTYPE html>
@@ -25,9 +21,7 @@ $players = get_players();
 
         <div class="title title-player">BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ <br> JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</div>
         
-        <form action="" method="post">
-            <input class="button btn-player" type="submit" name="logout" value="Déconnexion">
-        </form>
+        <a id="btn-logout" class="button btn-player" href="index.php?statut=logout">Déconnexion</a>
     </header>
    
     <div class="game-content">
@@ -95,6 +89,15 @@ $players = get_players();
 
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
+
+        //log out confirmation box
+        document.getElementById('btn-logout').addEventListener('click', function(e) {
+            var logout = confirm("Etes-vous sûr de vouloir vous déconnecter? La partie ne sera pas enregistrée.");
+            if(!logout){
+                e.preventDefault();
+                return false;
+            }
+        })
 </script>
 </body>
 </html>

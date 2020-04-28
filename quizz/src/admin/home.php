@@ -3,10 +3,6 @@ is_connected();
 if (isset($_SESSION['user'])) {
     $admin = $_SESSION['user'];
 }
-if (isset($_POST['logout'])) {
-    session_destroy();
-    header('Location: index.php');
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,25 +28,25 @@ if (isset($_POST['logout'])) {
                     <div class="tab-title">
                         <a href="index.php?lien=home&amp;content=questions-list">Liste des Questions</a>
                     </div>
-                    <div class="icon-tab"><img src="public/icones/ic-liste.png" alt=""></div>
+                    <div class="icon-tab icon-list"><img src="public/icones/ic-liste.png" alt=""></div>
                 </div>
                 <div class="menu-tab">
                     <div class="tab-title"> 
                         <a href="index.php?lien=home&amp;content=create-admin">Créer Admin</a>
                     </div>
-                    <div class="icon-tab"><img src="public/icones/ic-ajout.png" alt=""></div>
+                    <div class="icon-tab icon-ajout"><img src="public/icones/ic-ajout.png" alt=""></div>
                 </div>
-                <div class="menu-tab active">
+                <div class="menu-tab">
                     <div class="tab-title">
                         <a href="index.php?lien=home&amp;content=players">Liste des Joueurs</a>
                     </div>
-                    <div class="icon-tab"><img src="public/icones/ic-liste-active.png" alt=""></div>
+                    <div class="icon-tab icon-list"><img src="public/icones/ic-liste.png" alt=""></div>
                 </div>
                 <div class="menu-tab">
                     <div class="tab-title">
                         <a href="index.php?lien=home&amp;content=create-question">Créer Questions</a>
                     </div>
-                    <div class="icon-tab"><img src="public/icones/ic-ajout.png" alt=""></div>
+                    <div class="icon-tab icon-ajout"><img src="public/icones/ic-ajout.png" alt=""></div>
                 </div>
             </div>
         </div>
@@ -75,9 +71,22 @@ if (isset($_POST['logout'])) {
         </div>
     </div>
     <script>
-        // $(document).ready(function(){
-        //     $("a[href*='" + window.location.href + "']").addClass("active");
-        // });
+        const links = document.getElementsByTagName('a');
+        for (link of links) {
+            if(link.parentElement.classList.contains('tab-title')) {
+                if (window.location.href.includes(link.href)) {
+                    link.parentElement.parentElement.setAttribute('class', 'menu-tab active');
+                    const image = link.parentElement.parentElement.children[1].children[0];
+                    if(image.parentElement.classList.contains('icon-list')) {
+                        image.setAttribute('src', 'public/icones/ic-liste-active.png');
+                    } else {
+                        if (image.parentElement.classList.contains('icon-ajout'))  {
+                            image.setAttribute('src', 'public/icones/ic-ajout-active.png');
+                        }
+                    }
+                }
+            }
+        }
     </script>
 </body>
 </html>

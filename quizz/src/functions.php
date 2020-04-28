@@ -192,7 +192,6 @@
         if ($type == 'text') {
             $answer['answer']['text'] = $inputs['textarea'];
             $answer['answer']['result'] = true;
-            set_data($answer, 'questions');
         }  elseif ($type == 'simple') {
             $i = 1;
             foreach ($tab1 as $key => $value) {
@@ -204,7 +203,6 @@
                 }
                 $i++;
             }
-            set_data($answer, 'questions');
         } elseif($type == 'multiple') {
             $j = 1;
             foreach ($tab2 as $key => $value) {
@@ -218,11 +216,12 @@
                     $j++;
                 }
             }
-            set_data($answer, 'questions');
         }
+        set_data($answer, 'questions');
     }
 
     function validate_form_questions($inputs) {
+        $errors = array();
         if (empty($inputs["question"])) {
             $errors['question'] = "*Champ Obligatoire";
         } 
@@ -245,6 +244,9 @@
                     break;
                     }
                 }
+                if (count($simpleAnswers) == 1) {
+                    $errors['type'] = "*Veuillez remplir au moins deux champs réponses";
+                }
             } elseif ($inputs["type"] == "multiple") {
                 $answers = is_string_inside($inputs, 'answer');
                 if (count($answers) < 2) {
@@ -260,5 +262,68 @@
             }
         }
         return $errors;
+    }
+    function paginate_questions(string $link, int $elementsPerPage, array $tab) {
+        $_SESSION['nbrNumbers'] = count($tab);
+        $_SESSION['nbrPages'] = ceil($_SESSION['nbrNumbers']/$elementsPerPage);
+        if(isset($_GET['page'])) {
+            $_SESSION['pageActuelle'] = intval($_GET['page']);
+     
+            if($_SESSION['pageActuelle'] > $_SESSION['nbrPages']){
+                $_SESSION['pageActuelle'] = $_SESSION['nbrPages'];
+            }
+        }
+        else {
+            $_SESSION['pageActuelle'] = 1; // La page actuelle est la n°1    
+        }
+        $_SESSION['firstEntry'] = ($_SESSION['pageActuelle']-1)*$elementsPerPage;
+        $_SESSION['finalValue'] = $_SESSION['pageActuelle']*$elementsPerPage;
+        if ($_SESSION['finalValue'] > count($tab)) {
+            $_SESSION['finalValue'] = count($tab);
+        }  
+
+        echo '<div class="questions-list-container">';
+        $i=$_SESSION['firstEntry'];
+        while ($i < $_SESSION['finalValue']) { 
+            echo '<div class="question-title">'.($i+1).'.'.$tab[$i]['question'].'</div>';
+            echo '<div class="answers-list">';
+            if ($tab[$i]['type'] == 'text') {
+                echo '<input disabled type="text" name="" id="" value="'.$tab[$i]['answer']['text'].'">';
+            } elseif ($tab[$i]['type'] == 'simple'){
+                $j = 1;
+                while(isset($tab[$i]['answer'.$j])) {
+                    if($tab[$i]['answer'.$j]['result']) {
+                        echo '<div><i class="fa fa-circle"></i> '.$tab[$i]['answer'.$j]['text'].'</div>';
+                    } else {
+                        echo '<div><i class="fa fa-circle-o"></i> '.$tab[$i]['answer'.$j]['text'].'</div>';
+                    }
+                    $j++;
+                }
+            } else {
+                $j = 1;
+                while(isset($tab[$i]['answer'.$j])) {
+                    if($tab[$i]['answer'.$j]['result']) {
+                        echo '<div><i class="fa fa-check-square"></i> '.$tab[$i]['answer'.$j]['text'].'</div>';
+                    } else {
+                        echo '<div><i class="fa fa-square-o"></i> '.$tab[$i]['answer'.$j]['text'].'</div>';
+                    }
+                    $j++;
+                }
+            }
+            echo '</div>';
+            $i++;
+        }
+        echo '</div>';
+
+        echo '<div class="btn-container">';
+        if ($_SESSION['pageActuelle'] == 1) {
+            echo ' <a href="'.$link.($_SESSION['pageActuelle']+1).'" class="btn-next">Suivant</a> ';
+        } elseif ($_SESSION['pageActuelle'] == $_SESSION['nbrPages']) {
+            echo ' <a href="'.$link.($_SESSION['pageActuelle']-1).'" class="btn-previous">Précédent</a> ';
+        } else {
+            echo ' <a href="'.$link.($_SESSION['pageActuelle']-1).'" class="btn-previous">Précédent</a> ';
+            echo ' <a href="'.$link.($_SESSION['pageActuelle']+1).'" class="btn-next">Suivant</a> ';
+        }
+        echo '</div>';
     }
 ?>

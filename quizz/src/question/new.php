@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des joueurs</title>
+    <title>Création de Questions</title>
 </head>
 <body>
 <?php
@@ -12,13 +12,22 @@
     $type = '';
     $simpleAnswers = '';
     $multipleAnswers = '';
+    $successMsg = false;
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $question = test_input($_POST['question']);
-        $score = test_input($_POST['score']);
+        $score = (int)test_input($_POST['score']);
         $type = test_input($_POST['type']);
         $errors = validate_form_questions($_POST);
+        $simpleAnswers = is_string_inside($_POST, 'label');
+        $multipleAnswers = is_string_inside($_POST, 'text');
         if (empty($errors)) {
             create_questions($question, $score, $type, $_POST, $simpleAnswers, $multipleAnswers);
+            $successMsg = true;
+        }
+        if ($successMsg) {
+            $question = '';
+            $score = '';
+            $type = '';
         }
     }
 
@@ -50,7 +59,7 @@
             <div class="answers-container" id="answers-container">
                 <div class="text-answer">
                     <div class="text">Réponse</div>
-                    <textarea id="textarea-answer" name="textarea" cols="79" rows="6"></textarea>
+                    <textarea id="textarea-answer" name="textarea" cols="80" rows="6"></textarea>
                 </div>
                 <div class="create-questions-error text-answer-error" id="text-answer-error"><?php if(!empty($errors['text-answer'])){echo $errors['text-answer'];} ?></div>
                 <div class="simple-answer" id="id_1">
@@ -67,7 +76,12 @@
                     <img src="public/icones/ic-supprimer.png" alt="">
                 </div>
                 <div class="create-questions-error multiple-answer-error" id="multiple-answer-error1"><?php if(!empty($errors['multiple-answer'])){echo $errors['multiple-answer'];} ?></div>
-                <div id="new-fields-container">
+                <div id="new-fields-container" class="new-fields-container">
+                    <?php 
+                        if ($successMsg) {
+                            echo '<div class="success-msg"><i class="fa fa-check"></i> Question enregistrée avec succès!</div>';
+                        }
+                    ?>
                 </div>
             </div>
             <div class="btn-create">
@@ -97,6 +111,9 @@
                     });
                 }
             }
+            document.getElementById('textarea-answer').addEventListener('keyup', function(e) {
+                document.getElementById('text-answer-error').innerText = "";
+            });
         });
 
         document.getElementById('btn-submit').addEventListener('click', function(e){
@@ -124,10 +141,15 @@
                 document.getElementById('text-answer-error').innerText = "*Ce champ est obligatoire";
             }
 
-            const radios = document.querySelectorAll('input[type="radio"]:checked');
-            if (selectedValue == "simple" && radios.length == 0) {
+            const checkedRadio = document.querySelectorAll('input[type="radio"]:checked');
+            if (selectedValue == "simple" && checkedRadio.length == 0) {
                 error = true;
                 document.getElementById('type-error').innerText = "*Veuillez cocher la bonne réponse";
+            }
+            const radios = document.querySelectorAll('input[type="radio"]');
+            if (selectedValue == "simple" && radios.length < 2) {
+                error = true;
+                document.getElementById('type-error').innerText = "*Veuillez remplir au moins deux champs réponses";
             }
 
             const checkbox = document.querySelectorAll('input[type="checkbox"]:checked');
