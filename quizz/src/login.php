@@ -19,6 +19,17 @@ require_once('functions.php');
             $result = authenticate($username, $password);
             if ($result == 'error') {
                 $errors['form'] = 'Login ou mot de passe incorrect';
+            } elseif ($result == 'player') {
+                $_SESSION['user'] = get_user($username, $password);
+                $_SESSION['statut'] = 'login';
+                $data = get_data('game');
+                $nbrQuestions = $data['nbrQuestions'];
+                if (!generate_questions($nbrQuestions, $_SESSION['user'])) {
+                    header('Location: index.php?lien=indisponible');
+                } else {
+                    $_SESSION['questions'] = generate_questions($nbrQuestions, $_SESSION['user']);
+                    header('Location: index.php?lien='.$result);
+                }
             } else {
                 $_SESSION['user'] = get_user($username, $password);
                 $_SESSION['statut'] = 'login';

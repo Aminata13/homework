@@ -24,27 +24,27 @@ if (isset($_SESSION['user'])) {
                 <div class="text firstname"><?php echo mb_strtoupper($admin['firstname']); ?></div>
             </div>
             <div class="menu-content">
-                <div class="menu-tab">
+                <div id="selected" class="menu-tab">
                     <div class="tab-title">
-                        <a href="index.php?lien=home&amp;content=questions-list">Liste des Questions</a>
+                        <a href="index.php?lien=admin&amp;content=questions-list">Liste des Questions</a>
                     </div>
                     <div class="icon-tab icon-list"><img src="public/icones/ic-liste.png" alt=""></div>
                 </div>
                 <div class="menu-tab">
                     <div class="tab-title"> 
-                        <a href="index.php?lien=home&amp;content=create-admin">Créer Admin</a>
+                        <a href="index.php?lien=admin&amp;content=create-admin">Créer Admin</a>
                     </div>
                     <div class="icon-tab icon-ajout"><img src="public/icones/ic-ajout.png" alt=""></div>
                 </div>
                 <div class="menu-tab">
                     <div class="tab-title">
-                        <a href="index.php?lien=home&amp;content=players">Liste des Joueurs</a>
+                        <a href="index.php?lien=admin&amp;content=players">Liste des Joueurs</a>
                     </div>
                     <div class="icon-tab icon-list"><img src="public/icones/ic-liste.png" alt=""></div>
                 </div>
                 <div class="menu-tab">
                     <div class="tab-title">
-                        <a href="index.php?lien=home&amp;content=create-question">Créer Questions</a>
+                        <a href="index.php?lien=admin&amp;content=create-question">Créer Questions</a>
                     </div>
                     <div class="icon-tab icon-ajout"><img src="public/icones/ic-ajout.png" alt=""></div>
                 </div>
@@ -86,6 +86,11 @@ if (isset($_SESSION['user'])) {
                     }
                 }
             }
+        }
+        if (window.location.href == 'http://localhost/php-sa/quizz/index.php?lien=admin') {
+                const test = document.getElementById('selected').setAttribute('class', 'menu-tab active');
+                const image = document.getElementById('selected').children[1].children[0];
+                image.setAttribute('src', 'public/icones/ic-liste-active.png');
         }
     </script>
 </body>

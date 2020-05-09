@@ -79,7 +79,7 @@
                 <div id="new-fields-container" class="new-fields-container">
                     <?php 
                         if ($successMsg) {
-                            echo '<div class="success-msg"><i class="fa fa-check"></i> Question enregistrée avec succès!</div>';
+                            echo '<div class="alert-msg success-msg"><i class="fa fa-check"></i> Question enregistrée avec succès!</div>';
                         }
                     ?>
                 </div>

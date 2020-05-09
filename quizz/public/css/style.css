@@ -132,14 +132,14 @@ img {
 /*-----------------------------------------------------------------------------------------------------------------*/
 
 .admin-header,
-.game-header {
+.player-header {
   background-color: #51bfd0;
   height: 70px;
   overflow: auto;
   margin: 0.5% 1.5%;
 }
 .admin-header .title,
-.game-header .title {
+.player-header .title {
   font-size: 25px;
   font-weight: bold;
   text-align: center;
@@ -151,7 +151,7 @@ img {
   margin-top: 1.5%;
 }
 .admin-header .button,
-.game-header .button,
+.player-header .button,
 .btn-next,
 .btn-previous,
 .btn-file,
@@ -173,13 +173,20 @@ img {
   margin-top: -2.3%;
 }
 .admin-content,
-.game-content {
+.player-content {
   background-color: #eae7e4;
   width: 97%;
   margin-left: 1.5%;
   height: 83%;
   margin-top: -0.5%;
   overflow: hidden;
+}
+.player-content .player-content-container {
+  width: 90%;
+  height: 96%;
+  margin: 0.7% auto;
+  overflow: auto;
+  background-color: white;
 }
 .admin-content .menu {
   float: left;
@@ -448,46 +455,47 @@ input[type="file"] {
   margin-left: 35%;
 }
 /*----------------------------------------------------------------------------------------------------------------*/
-.game-header .title-player {
+.player-header .title-player {
   margin-top: 0.5%;
 }
-.game-header .btn-player {
+.player-header .btn-player {
   margin-top: -3.5%;
 }
-.game-header .avatar {
+.player-header .avatar {
   float: left;
   width: 10%;
   height: 100%;
 }
-.game-header .avatar img {
+.player-header .avatar img {
   width: 40%;
   height: 67%;
   margin: 1% 0% -2% 10%;
   border: 1px solid white;
   border-radius: 50%;
 }
-.game-header .user {
+.player-header .user {
   color: white;
   font-size: 13px;
   margin-left: 7%;
   font-weight: bold;
 }
-.game-content .score {
+.player-content .score {
   float: right;
   width: 23%;
-  height: 75%;
-  margin: 3% 5% 0% 0%;
+  height: 70%;
+  margin: 3% 8.5% 0% 0%;
   border-radius: 2%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.game-content .questions {
-  width: 67%;
+.player-content .questions {
+  width: 60%;
   height: 95%;
-  margin: 0.5% 0% 0% 4%;
-  border: 1.5px solid #51bfd0;
+  margin: 1% 0% 0% 7.5%;
+  border: 1.5px solid #1a8faa;
   border-radius: 19px;
   background-color: white;
+  overflow: auto;
 }
 .top-player {
   float: left;
@@ -617,7 +625,8 @@ input[type="file"] {
 }
 .create-questions-container input,
 .create-questions-container select,
-.text-answer textarea {
+.text-answer textarea,
+.game-question form input {
   background-color: #f7f7f7;
   border-right: 0.8px solid #51bfd0;
   border-bottom: 1.6px solid #51bfd0;
@@ -740,15 +749,17 @@ input[type="file"] {
 .multiple-answer-error {
   display: none;
 }
-.success-msg {
+.alert-msg {
   position: absolute;
   width: 35%;
   height: 5%;
   margin: 4% 0% 0% 25%;
   padding: 10px;
   border-radius: 3px 3px 3px 3px;
+  font-family: "Open Sans"; 
+}
+.success-msg {
   color: #270;
-  font-family: "Open Sans";
   background-color: #dff2bf;
 }
 
@@ -757,6 +768,13 @@ input[type="file"] {
   width: 80%;
   height: 10%;
   margin: 0% auto;
+}
+.questions-list-header .error {
+  float: right;
+  width: 25%;
+  margin-bottom: 2%;
+  margin-right: 0.5%;
+  font-size: 11px;
 }
 .questions-list-header form {
     width: 60%;
@@ -790,7 +808,7 @@ input[type="file"] {
 
 .questions-list-container {
   width: 80%;
-  height: 70%;
+  height: 68.5%;
   margin: 0% auto;
   border: 1px solid #e5d4c2;
   border-radius: 17px;
@@ -844,4 +862,146 @@ input[type="file"] {
 }
 .btn-container .btn-next {
     margin-right: 11%;
+}
+/*-----------------------------------------------------------------------------------------------------------------*/
+.game-header {
+  width: 90%;
+  height: 29%;
+  margin: 1% auto;
+  border-right: 0.8px solid #51bfd0;
+  border-bottom: 0.8px solid #51bfd0;
+  background-color: #f7f7f7;
+  overflow: auto;
+}
+.game-header .game-header-title {
+  text-align: center;
+  margin-top: 3%;
+  font: italic bold 25px 'Open Sans';
+  text-decoration: underline;
+}
+.game-header .game-header-question {
+  text-align: center;
+  font: 22px 'Open Sans';
+}
+.question-score {
+  float: left;
+  width: 9%;
+  height: 5%;
+  margin: 1% 0% 0% 4.9%;
+  text-align: center;
+  padding: 1%;
+  border-bottom: 0.8px solid #51bfd0;
+  background-color: #f7f7f7;
+  font: 18px 'Open Sans';
+}
+.btn-leave {
+  margin: 1% 5% 0% 0%;
+  background-color: rgba(255, 0, 0, 0.76);
+}
+.game-question {
+  clear: both;
+  width: 75%;
+  height: 42%;
+  margin: 2% auto;
+  margin-bottom: 0%;
+}
+.game-question form {
+  width: 100%;
+  height: 100%;
+  padding-top: 4%;
+  padding-left: 15%;
+}
+.game-question form label {
+  font: bold 25px 'Open Sans';
+}
+
+.questions .btn-container {
+  background-color: unset;
+  width: 90%;
+  height: 15%;
+  margin: 0% auto;
+}
+.questions .btn-container .btn-previous, .questions .btn-container .btn-next {
+  margin: 2% 0% 0% 0%;
+  font: bold 20px 'Open Sans';
+  border-radius: 0%;
+}
+.questions .btn-container .btn-previous {
+  background-color: #818181;
+  border-top: 1.3px solid #b3b3b3;
+}
+.questions .btn-container .btn-next {
+  padding: 4px 17px ;
+  border-top: 1.3px solid #89ebe6;
+}
+.game-question form input[type="text"] {
+  width: 55%;
+  height: 60%;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+.page-score-container {
+  padding: 3%;
+  overflow: auto;
+}
+.page-score-container .score-title {
+  font: bold 20px 'Open Sans';
+  margin-top: 5%;
+}
+.page-score-container .score-question {
+  font: bold 17px 'Open Sans';
+}
+.page-score-container label {
+  margin: 2%;
+  font: 15px 'Open Sans';
+}
+.page-score-container label input {
+  margin: 1%;
+}
+.fa-check {
+  color: green;
+}
+.fa-times {
+  color: red;
+  width: 15px;
+}
+.page-score-container .alert-msg {
+  position: relative;
+  width: 33%;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+.page-score-container .error-msg {
+  color: #D8000C;
+  background-color: #FFBABA;
+  width: 60%;
+}
+.page-score-container .final-score {
+  width: 30%;
+  margin: 2% auto;
+  font: bold 30px 'Open Sans';
+  text-align: center;
+  color: #51bfd0;
+}
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 #51bfd0;
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 #4aa2af;
+}
+
+.card-error {
+  background-color: white;
+  border: 2px solid #51bfd0;
+  width: 40%;
+  height: 25%;
+  margin: 7% auto;
+  font: bold 20px 'Open Sans';
+  text-align: center;
+  color: #51bfd0;
+  padding-top: 3%;
 }

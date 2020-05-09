@@ -19,14 +19,16 @@ require_once('src/functions.php');
     <div class="content">
         <?php
         if (isset($_GET['lien'])) {
-            if ($_GET['lien']=="home") {
+            if ($_GET['lien']=="admin") {
                 require_once('src/admin/home.php');
-            } elseif($_GET['lien']=="game") {
-                require_once('src/player/game.php');
+            } elseif($_GET['lien']=="player") {
+                require_once('src/player/home.php');
             } elseif ($_GET['lien']=="signup") {
                 $_SESSION['message'] = 'Pour tester votre niveau de culture générale';
                 $_SESSION['legend'] = 'Avatar du joueur';
                 require_once('src/user-registration.php');
+            } elseif ($_GET['lien']=="indisponible") {
+                require_once('src/error-page.php');
             }
         } else {
             if (isset($_GET['statut'])=='logout') {

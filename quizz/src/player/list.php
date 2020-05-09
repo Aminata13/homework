@@ -12,7 +12,7 @@
     <div class="title">LISTE DES JOUEURS PAR SCORE</div>
     <div class="list">
         <?php
-            paginate('index.php?lien=home&content=players&page=', 13, $players);
+            paginate('index.php?lien=admin&content=players&page=', 13, $players);
         ?>
 </body>
 </html>
